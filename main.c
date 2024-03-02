@@ -4,8 +4,7 @@
 #include <malloc.h>
 
 #include "parser.h"
-
-#define LINE_SIZE 3
+#include "structs.h"
 
 int main(void) {
     char* testline = "Hello Im Matt";

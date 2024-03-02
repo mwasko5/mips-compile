@@ -6,18 +6,19 @@ char** parse_line(char* line, int size) {
     int index = 0;
     int arr_index = 0;
     while(line[index] != '\0') {
-        char* tempstr = malloc(strlen(line) + 1); // Allocate memory for the substring
+        char* tempstr = malloc(strlen(line) + 1); // space for string
         int spot = 0;
-        while(line[index] != ' ' && line[index] != '\0') { // Check for end of string as well
+        while(line[index] != ' ' && line[index] != '\0') { // check for end of string
             tempstr[spot] = line[index];
             spot++;
             index++;
         }
-        tempstr[spot] = '\0'; // Null-terminate the substring
+        tempstr[spot] = '\0'; // end of the string
         array[arr_index] = tempstr;
         arr_index++;
-        if (line[index] == '\0') // Break the loop if end of string is reached
+        if (line[index] == '\0') {
             break;
+        }
         index++;
     }
     return array;
