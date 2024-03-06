@@ -1,5 +1,13 @@
 #include "parser.h"
 
+int opcode_index(char* opcode) {
+    for(int i = 0; i < NUM_INSTRUCTIONS_SUPPORTED; i++) {
+        if(strcmp(instructions[i], opcode) == 0) {
+            return i;
+        }
+    }
+}
+
 char** parse_line(char* line, int size) {
     char **array = malloc(sizeof(char*) * size);
 

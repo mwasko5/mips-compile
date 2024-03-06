@@ -5,7 +5,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "structs.h"
+
 #define LINE_SIZE 3
+
+int opcode_index(char* opcode);
 
 char** parse_line(char* line, int size);
 

@@ -1,6 +1,8 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
+#define NUM_INSTRUCTIONS_SUPPORTED 2
+
 typedef struct mips_r_type_struct {
     int opcode; // 6 bits
     int rs; // integer value of the register number (5 bits)
@@ -32,5 +34,20 @@ typedef enum { // mapped to their register number in mips
     t8, t9,
     k0, k1, gp, sp, s8, ra
 } mips_register;
+
+char* registers[32] = {
+    "r0", "at", 
+    "v0", "v1", 
+    "a0", "a1", "a2", "a3",
+    "t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7",
+    "s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7",
+    "t8", "t9",
+    "k0", "k1", "gp", "sp", "s8", "ra"
+};
+
+char* instructions[NUM_INSTRUCTIONS_SUPPORTED] = { // add more when support is created
+    "add",
+    "addi"
+}
 
 #endif

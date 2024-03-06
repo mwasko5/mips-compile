@@ -7,7 +7,7 @@
 #include "structs.h"
 
 int main(void) {
-    char* testline = "Hello Im Matt";
+    char* testline = "addi $t0, $t0, 10";
     char** testarr;
     testarr = parse_line(testline, LINE_SIZE);
 
