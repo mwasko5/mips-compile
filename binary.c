@@ -35,7 +35,7 @@ char* j_type_to_bits(mips_j_type instruction) {
 }
 
 char* int_to_n_bits(int input, int size) { // need to check for overflow
-    char *bits = malloc(sizeof(char) * 8);
+    char *bits = malloc(sizeof(char) * size);
     int count = input;
     
     for(int i = 0; i < size; i++) {
