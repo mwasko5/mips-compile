@@ -1,5 +1,4 @@
 #include "binary.h"
-#include "structs.h"
 
 char* r_type_to_bits(mips_r_type instruction) {
     char *bits = malloc(sizeof(char) * 32);
@@ -34,62 +33,24 @@ char* j_type_to_bits(mips_j_type instruction) {
     return bits; // need to free bits later
 }
 
-char* int_to_n_bits(int input, int size) { // need to check for overflow
-    char *bits = malloc(sizeof(char) * size);
-    int count = input;
-    
-    for(int i = 0; i < size; i++) {
-        if((count % 2) == 1) {
-            bits[i] = '1';
-        }
-        else {
-            bits[i] = '0';
-        }
+char* int_to_n_bits(int input, int size) {
+	char *bits = malloc(sizeof(char) * size);
+	int count = input;
 
-        count = (count / 2);
-    }
+	for(int i = 0; i < size; i++) {
+		if((count % 2) == 1) {
+			bits[size-i-1] = '1'; // want to start placing from the end
+		}
+		else {
+			bits[size-i-1] = '0';
+		}
 
-    return bits; // need to remember to free the bits after use
+		count = (count / 2);
+	}
+
+	return bits; // need to free later
 }
 
-/*
-char* int_to_8bit(int input) {
-    char *bits = malloc(sizeof(char) * 8);
-    int count = input;
-    
-    for(int i = 0; i < 8; i++) {
-        if((count % 2) == 1) {
-            bits[i] = '1';
-        }
-        else {
-            bits[i] = '0';
-        }
-
-        count = (count / 2);
-    }
-
-    return bits; // need to remember to free the bits after use
-}
-
-char* int_to_16bit(int input) {
-    char *bits = malloc(sizeof(char) * 16);
-    int count = input;
-    
-    for(int i = 0; i < 16; i++) {
-        if((count % 2) == 1) {
-            bits[i] = '1';
-        }
-        else {
-            bits[i] = '0';
-        }
-
-        count = (count / 2);
-    }
-
-    return bits; // need to remember to free the bits after use
-}
-*/
-
-void free_bits(char *bits) {
-    free(bits);
+void free_bits(char* bits) {
+	free(bits);
 }
