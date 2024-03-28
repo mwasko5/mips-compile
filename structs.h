@@ -17,6 +17,16 @@ static int instruction_types[NUM_INSTRUCTIONS_SUPPORTED] = { // 0 = r-type, 1 = 
 	1
 };
 
+static int instruction_opcodes[NUM_INSTRUCTIONS_SUPPORTED] = { // 0 for non r-type/i-type (in the beginning) (6 bits)
+    0, // add 
+    8 // addi
+};
+
+static int instruction_funccodes[NUM_INSTRUCTIONS_SUPPORTED] = { // (in the end) (6 bits) (-1 for i-type & j-type)
+    32, // add
+    -1, // addi
+};
+
 typedef struct mips_r_type_struct {
 	int opcode; // 6 bits
 	int rs; // 5 bits
